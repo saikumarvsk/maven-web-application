@@ -1,0 +1,10 @@
+pipeline{
+agent any
+stages{
+stage("git integration"){
+steps{
+git 'https://github.com/saikumarvsk/maven-web-application.git'
+}
+}
+}
+}
