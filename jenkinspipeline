@@ -1,9 +1,17 @@
 pipeline{
 agent any
+environment{
+PATH="/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven3.9.4/bin:$PATH"
+}
 stages{
 stage("git integration"){
 steps{
 git 'https://github.com/saikumarvsk/maven-web-application.git'
+}
+}
+stage("git build"){
+steps{
+sh "mvn clean install package"
 }
 }
 }
